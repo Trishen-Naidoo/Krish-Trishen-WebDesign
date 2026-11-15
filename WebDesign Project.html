@@ -1,0 +1,2729 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONE NIGHT: The Campus That Never Sleeps | VIT Mauritius</title>
+  <meta name="description" content="One night. Every student. Zero spectators. VIT Mauritius's all-night participatory campus festival on 20 March 2027." />
+
+  <!-- Google Fonts: Instrument Serif (regular & italic) + clean sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================
+       STRICT 3-COLOR SYSTEM: #000000, #FFFFFF, #888888
+       ========================================================== */
+    :root,
+    [data-theme="dark"] {
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #888888;
+
+      --glass-bg: rgba(255, 255, 255, 0.01);
+      --glass-hover: rgba(255, 255, 255, 0.06);
+      --glass-inset: rgba(255, 255, 255, 0.1);
+      --glass-edge-strong: rgba(255, 255, 255, 0.45);
+      --glass-edge-mid: rgba(255, 255, 255, 0.15);
+      --divider: rgba(255, 255, 255, 0.12);
+      --surface-soft: rgba(255, 255, 255, 0.04);
+      --radial-tint: rgba(255, 255, 255, 0.03);
+      --scrim: rgba(0, 0, 0, 0.55);
+      --btn-solid-bg: #ffffff;
+      --btn-solid-fg: #000000;
+      --card-back-bg: rgba(0, 0, 0, 0.92);
+      --input-placeholder: rgba(255, 255, 255, 0.45);
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --fg: #000000;
+      --muted: #888888;
+
+      --glass-bg: rgba(0, 0, 0, 0.02);
+      --glass-hover: rgba(0, 0, 0, 0.06);
+      --glass-inset: rgba(0, 0, 0, 0.08);
+      --glass-edge-strong: rgba(0, 0, 0, 0.35);
+      --glass-edge-mid: rgba(0, 0, 0, 0.12);
+      --divider: rgba(0, 0, 0, 0.12);
+      --surface-soft: rgba(0, 0, 0, 0.04);
+      --radial-tint: rgba(0, 0, 0, 0.03);
+      --scrim: rgba(255, 255, 255, 0.72);
+      --btn-solid-bg: #000000;
+      --btn-solid-fg: #ffffff;
+      --card-back-bg: rgba(255, 255, 255, 0.94);
+      --input-placeholder: rgba(0, 0, 0, 0.45);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .serif {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+    }
+
+    .serif-italic {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .container {
+      width: min(1152px, 92%);
+      margin: 0 auto;
+    }
+
+    .vit-crest {
+      display: block;
+      flex-shrink: 0;
+      background: transparent;
+    }
+
+    /* ================= LIQUID GLASS SYSTEM ================= */
+    .liquid-glass {
+      background: var(--glass-bg);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: none;
+      box-shadow: inset 0 1px 1px var(--glass-inset);
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease, transform 0.25s ease;
+    }
+
+    .liquid-glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(
+        180deg,
+        var(--glass-edge-strong) 0%,
+        var(--glass-edge-mid) 20%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0) 60%,
+        var(--glass-edge-mid) 80%,
+        var(--glass-edge-strong) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .liquid-glass-btn {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--fg);
+    }
+
+    .liquid-glass-btn:hover {
+      background: var(--glass-hover);
+    }
+
+    .solid-btn {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      border-radius: 9999px;
+      background: var(--btn-solid-bg);
+      color: var(--btn-solid-fg);
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 12px 28px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .solid-btn:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    /* ================= MOTION REVEAL ================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.in-view,
+    .reveal-left.in-view,
+    .reveal-right.in-view {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ================= SECTION 1: HERO ================= */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="light"] .hero-video {
+      filter: invert(1) contrast(0.95);
+    }
+
+    .hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, var(--scrim) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Navbar inside Hero / Sticky Pill */
+    .navbar-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 20px 24px;
+      pointer-events: none;
+    }
+
+    .navbar-pill {
+      pointer-events: auto;
+      max-width: 1024px;
+      margin: 0 auto;
+      border-radius: 9999px;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--fg);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 9999px;
+      padding: 0;
+      color: var(--fg);
+    }
+
+    .nav-text-btn {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--fg);
+      padding: 8px 10px;
+    }
+
+    .nav-login-pill {
+      padding: 8px 22px;
+    }
+
+    .hamburger {
+      display: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 9999px;
+      padding: 0;
+      color: var(--fg);
+    }
+
+    .mobile-drawer {
+      display: none;
+      pointer-events: auto;
+      max-width: 1024px;
+      margin: 10px auto 0;
+      border-radius: 24px;
+      padding: 20px 24px;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    .mobile-drawer a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--fg);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .mobile-drawer a:last-child {
+      border-bottom: none;
+    }
+
+    /* Hero Content */
+    .hero-main {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 112px 24px 36px;
+      gap: 20px;
+    }
+
+    .hero-crest-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 18px 8px 10px;
+      border-radius: 9999px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-heading {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(3.3rem, 8.5vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--fg);
+      max-width: 1040px;
+    }
+
+    .hero-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(1.35rem, 2.8vw, 2rem);
+      color: var(--muted);
+    }
+
+    /* Countdown Timer inside Hero */
+    .countdown-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(68px, 110px));
+      gap: 12px;
+      margin: 4px 0;
+    }
+
+    .countdown-pill {
+      border-radius: 20px;
+      padding: 14px 10px;
+      text-align: center;
+    }
+
+    .countdown-num {
+      display: block;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      color: var(--fg);
+    }
+
+    .countdown-label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Hero Email / Quick-Pass Pill */
+    .hero-input-pill {
+      max-width: 560px;
+      width: 100%;
+      border-radius: 9999px;
+      padding: 8px 8px 8px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-input-pill input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      color: var(--fg);
+    }
+
+    .hero-input-pill input::placeholder {
+      color: var(--input-placeholder);
+    }
+
+    .hero-submit-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      border: none;
+      background: var(--btn-solid-bg);
+      color: var(--btn-solid-fg);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .hero-submit-circle:hover {
+      transform: scale(1.06);
+    }
+
+    .hero-subtitle {
+      max-width: 560px;
+      font-size: 0.875rem;
+      line-height: 1.65;
+      color: var(--muted);
+      padding: 0 12px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .manifesto-btn {
+      padding: 12px 32px;
+    }
+
+    .hero-socials {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding-bottom: 40px;
+    }
+
+    .social-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 9999px;
+      color: var(--muted);
+      display: grid;
+      place-items: center;
+      transition: color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .social-circle:hover {
+      color: var(--fg);
+      background: var(--glass-hover);
+    }
+
+    /* ================= SECTION 2: ABOUT & COUNTERS ================= */
+    .about-section {
+      background: var(--bg);
+      padding: 120px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-radial {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top, var(--radial-tint) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .about-heading {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      margin-bottom: 40px;
+    }
+
+    .about-heading em {
+      color: var(--muted);
+    }
+
+    .about-body-row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about-text-card {
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .about-text-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+    }
+
+    .about-text-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-text-card strong {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .counter-card {
+      border-radius: 24px;
+      padding: 28px 22px;
+    }
+
+    .counter-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+      line-height: 1;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .counter-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--fg);
+    }
+
+    .counter-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ================= SECTION 3: FEATURED VIDEO ================= */
+    .featured-section {
+      background: var(--bg);
+      padding: 32px 24px 96px;
+      overflow: hidden;
+    }
+
+    .featured-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: var(--bg);
+    }
+
+    .featured-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    [data-theme="light"] .featured-frame video,
+    [data-theme="light"] .philosophy-video video,
+    [data-theme="light"] .service-video video {
+      filter: invert(1) contrast(0.95);
+    }
+
+    .featured-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 55%);
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .featured-gradient {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.85), transparent 55%);
+    }
+
+    .featured-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      z-index: 2;
+    }
+
+    .featured-card {
+      border-radius: 16px;
+      padding: 28px;
+      max-width: 440px;
+    }
+
+    .featured-card-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .featured-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--fg);
+    }
+
+    /* ================= SECTION 4: NIGHT TIMELINE (PHILOSOPHY LAYOUT) ================= */
+    .timeline-section {
+      background: var(--bg);
+      padding: 112px 24px;
+      overflow: hidden;
+    }
+
+    .philosophy-heading {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--fg);
+      margin-bottom: 64px;
+    }
+
+    .philosophy-heading em {
+      color: var(--muted);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .philosophy-video {
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      position: sticky;
+      top: 110px;
+    }
+
+    .philosophy-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .timeline-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--divider);
+      cursor: pointer;
+    }
+
+    .timeline-item:first-child {
+      padding-top: 0;
+    }
+
+    .timeline-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .timeline-time {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .timeline-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      line-height: 1.1;
+      color: var(--fg);
+    }
+
+    .timeline-summary {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 6px;
+    }
+
+    .timeline-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9999px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-item.active .timeline-icon {
+      transform: rotate(180deg);
+    }
+
+    .timeline-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1), margin-top 0.3s ease;
+    }
+
+    .timeline-item.active .timeline-details {
+      max-height: 220px;
+      margin-top: 14px;
+    }
+
+    .timeline-details p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+
+    .timeline-meta {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    /* ================= SECTION 5: SHOWCASE + THE 6 ZONES ================= */
+    .zones-section {
+      background: var(--bg);
+      padding: 112px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .section-big-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+    }
+
+    .section-side-label {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* Two Featured Video Cards */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      border-radius: 24px;
+    }
+
+    .service-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .service-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+      display: block;
+    }
+
+    .service-card:hover .service-video video {
+      transform: scale(1.05);
+    }
+
+    .service-body {
+      padding: 28px;
+    }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .service-tag {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .arrow-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 9999px;
+      display: grid;
+      place-items: center;
+      color: var(--fg);
+    }
+
+    .service-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.85rem;
+      color: var(--fg);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* 6 Zones Flip Cards */
+    .zones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .zone-wrap {
+      perspective: 1200px;
+      height: 300px;
+      cursor: pointer;
+    }
+
+    .zone-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .zone-wrap.flipped .zone-inner {
+      transform: rotateY(180deg);
+    }
+
+    @media (hover: hover) {
+      .zone-wrap:hover .zone-inner {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .zone-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .zone-back {
+      transform: rotateY(180deg);
+      background: var(--card-back-bg);
+    }
+
+    .zone-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      display: grid;
+      place-items: center;
+      color: var(--fg);
+      margin-bottom: 16px;
+    }
+
+    .zone-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.85rem;
+      line-height: 1.05;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .zone-short {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .zone-for {
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--fg);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      align-self: flex-start;
+    }
+
+    .zone-back p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .zone-back-foot {
+      padding-top: 14px;
+      border-top: 1px solid var(--divider);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--fg);
+    }
+
+    .zone-highlight {
+      outline: 1.5px solid var(--fg);
+      border-radius: 24px;
+    }
+
+    /* ================= SECTION 6: FIND YOUR ZONE QUIZ ================= */
+    .quiz-section {
+      background: var(--bg);
+      padding: 96px 24px;
+    }
+
+    .quiz-box {
+      max-width: 780px;
+      margin: 0 auto;
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .quiz-bar {
+      width: 100%;
+      height: 2px;
+      background: var(--divider);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .quiz-bar-fill {
+      height: 100%;
+      width: 25%;
+      background: var(--fg);
+      transition: width 0.35s ease;
+    }
+
+    .quiz-q {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      line-height: 1.1;
+      color: var(--fg);
+      margin-bottom: 24px;
+    }
+
+    .quiz-opts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .quiz-opt {
+      text-align: left;
+      padding: 18px 20px;
+      border-radius: 18px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--fg);
+    }
+
+    .quiz-opt:hover {
+      background: var(--glass-hover);
+    }
+
+    .quiz-opt strong {
+      font-size: 0.96rem;
+      font-weight: 500;
+      color: var(--fg);
+    }
+
+    .quiz-opt span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .quiz-result {
+      display: none;
+      text-align: center;
+    }
+
+    .quiz-result.show {
+      display: block;
+    }
+
+    .quiz-result-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      color: var(--fg);
+      margin: 12px 0;
+    }
+
+    .quiz-result-desc {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 24px;
+      font-size: 0.95rem;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    /* ================= SECTION 7: SPEAKERS & PERFORMERS ================= */
+    .speakers-section {
+      background: var(--bg);
+      padding: 96px 24px;
+    }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .speaker-card {
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .speaker-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      display: grid;
+      place-items: center;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--fg);
+      flex-shrink: 0;
+      background: var(--surface-soft);
+    }
+
+    .speaker-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.55rem;
+      line-height: 1.1;
+      color: var(--fg);
+    }
+
+    .speaker-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .speaker-line {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ================= SECTION 8: REGISTER & DIGITAL PASS ================= */
+    .register-section {
+      background: var(--bg);
+      padding: 96px 24px 120px;
+    }
+
+    .register-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .register-card,
+    .pass-card {
+      border-radius: 24px;
+      padding: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--divider);
+      background: var(--surface-soft);
+      color: var(--fg);
+      font-size: 0.94rem;
+      outline: none;
+    }
+
+    .form-control option {
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    .form-control:focus {
+      border-color: var(--fg);
+    }
+
+    .wristband {
+      border-radius: 20px;
+      padding: 26px;
+      margin: 22px 0;
+    }
+
+    .wristband-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+
+    .wristband-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .wristband-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.3rem;
+      line-height: 1.05;
+      color: var(--fg);
+      margin-bottom: 8px;
+    }
+
+    .wristband-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+    }
+
+    .stamp-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .stamp-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 9999px;
+      border: 1px solid var(--muted);
+      background: transparent;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .stamp-dot.lit {
+      background: var(--fg);
+      border-color: var(--fg);
+    }
+
+    .entry-notes {
+      display: grid;
+      gap: 8px;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .entry-notes strong {
+      color: var(--fg);
+      font-weight: 500;
+    }
+
+    .form-status {
+      margin-top: 14px;
+      font-size: 0.88rem;
+      color: var(--fg);
+      min-height: 20px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      border-top: 1px solid var(--divider);
+      padding: 40px 24px;
+      background: var(--bg);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--fg);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 960px) {
+      .about-body-row,
+      .philosophy-grid,
+      .pillars-grid,
+      .register-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .philosophy-video {
+        position: static;
+      }
+
+      .zones-grid,
+      .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links,
+      .nav-text-btn {
+        display: none;
+      }
+
+      .hamburger {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .featured-overlay {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      .zones-grid,
+      .speakers-grid,
+      .quiz-opts {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-side-label {
+        display: none;
+      }
+
+      .quiz-box,
+      .register-card,
+      .pass-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .countdown-row {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+
+      .counters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar-wrap">
+    <nav class="liquid-glass navbar-pill" aria-label="Primary Navigation">
+      <div class="nav-left">
+        <a href="#hero" class="brand" aria-label="VIT Mauritius ONE NIGHT Home">
+          <!-- Transparent VIT Mauritius Crest SVG (zero background) -->
+          <svg class="vit-crest" width="36" height="38" viewBox="0 0 200 212" fill="none" aria-hidden="true">
+            <defs>
+              <path id="vitTopArcNav" d="M 24 106 A 76 76 0 1 1 176 106" />
+              <path id="vitBotArcNav" d="M 48 184 Q 100 168 152 184" />
+              <clipPath id="vitInnerClipNav">
+                <circle cx="100" cy="96" r="64" />
+              </clipPath>
+            </defs>
+            <circle cx="100" cy="96" r="88" stroke="currentColor" stroke-width="3.2" fill="none" />
+            <circle cx="100" cy="96" r="66" stroke="currentColor" stroke-width="2.6" fill="none" />
+            <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="11.5" letter-spacing="0.4">
+              <textPath href="#vitTopArcNav" startOffset="50%" text-anchor="middle">VIT (MAURITIUS) EDUCATION LTD</textPath>
+            </text>
+            <g clip-path="url(#vitInnerClipNav)">
+              <text x="100" y="64" text-anchor="middle" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="29" letter-spacing="1.5">VIT</text>
+              <!-- Temple tower silhouette -->
+              <polygon points="68,104 75,72 88,72 95,104" fill="currentColor" />
+              <rect x="76" y="68" width="11" height="4" fill="currentColor" />
+              <!-- Fort rampart blocks (true transparent gaps) -->
+              <rect x="34" y="102" width="128" height="4" fill="currentColor" />
+              <g fill="currentColor">
+                <rect x="38" y="109" width="12" height="5" /><rect x="53" y="109" width="12" height="5" /><rect x="68" y="109" width="12" height="5" /><rect x="83" y="109" width="12" height="5" /><rect x="98" y="109" width="12" height="5" /><rect x="113" y="109" width="12" height="5" /><rect x="128" y="109" width="12" height="5" />
+                <rect x="42" y="117" width="12" height="5" /><rect x="57" y="117" width="12" height="5" /><rect x="72" y="117" width="12" height="5" /><rect x="87" y="117" width="12" height="5" /><rect x="102" y="117" width="12" height="5" /><rect x="117" y="117" width="12" height="5" /><rect x="132" y="117" width="12" height="5" />
+                <rect x="46" y="125" width="12" height="5" /><rect x="61" y="125" width="12" height="5" /><rect x="76" y="125" width="12" height="5" /><rect x="91" y="125" width="12" height="5" /><rect x="106" y="125" width="12" height="5" /><rect x="121" y="125" width="12" height="5" />
+                <rect x="54" y="133" width="14" height="5" /><rect x="71" y="133" width="14" height="5" /><rect x="88" y="133" width="14" height="5" /><rect x="105" y="133" width="14" height="5" />
+              </g>
+              <!-- Water ripples -->
+              <path d="M 55 144 Q 100 140 145 144 M 65 151 Q 100 148 135 151" stroke="currentColor" stroke-width="2" fill="none" />
+            </g>
+            <!-- Side stars -->
+            <polygon points="40,140 42,145 47,145 43,148 45,153 40,150 35,153 37,148 33,145 38,145" fill="currentColor" />
+            <polygon points="160,140 162,145 167,145 163,148 165,153 160,150 155,153 157,148 153,145 158,145" fill="currentColor" />
+            <!-- Mauritius Banner -->
+            <path d="M 16 176 L 34 182 L 34 202 L 16 196 L 23 186 Z" stroke="currentColor" stroke-width="2.2" fill="var(--bg)" />
+            <path d="M 184 176 L 166 182 L 166 202 L 184 196 L 177 186 Z" stroke="currentColor" stroke-width="2.2" fill="var(--bg)" />
+            <path d="M 32 178 Q 100 154 168 178 L 168 202 Q 100 178 32 202 Z" stroke="currentColor" stroke-width="2.6" fill="var(--bg)" />
+            <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13.5" letter-spacing="1.6">
+              <textPath href="#vitBotArcNav" startOffset="50%" text-anchor="middle">MAURITIUS</textPath>
+            </text>
+          </svg>
+          <span>VIT MAURITIUS</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about">Concept</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#zones">6 Zones</a></li>
+          <li><a href="#quiz">Find Your Zone</a></li>
+          <li><a href="#speakers">Performers</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <button type="button" class="liquid-glass liquid-glass-btn theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode" title="Toggle Dark / Light Mode">
+          <svg id="themeIconSun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="#quiz" class="nav-text-btn">Zone Quiz</a>
+        <a href="#register" class="liquid-glass liquid-glass-btn nav-login-pill">Register</a>
+
+        <button type="button" class="liquid-glass liquid-glass-btn hamburger" id="hamburgerBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div class="liquid-glass mobile-drawer" id="mobileDrawer">
+      <a href="#about">Concept</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#zones">The 6 Zones</a>
+      <a href="#quiz">Find Your Zone</a>
+      <a href="#speakers">Speakers &amp; Performers</a>
+      <a href="#register">Register Now</a>
+    </div>
+  </header>
+
+  <!-- ================= SECTION 1: HERO ================= -->
+  <section class="hero" id="hero">
+    <video
+      id="heroVideo"
+      class="hero-video"
+      src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_074625_a81f018a-956b-43fb-9aee-4d1508e30e6a.mp4"
+      muted
+      autoplay
+      playsinline
+      preload="auto"
+    ></video>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="hero-main">
+      <div class="liquid-glass hero-crest-badge">
+        <svg class="vit-crest" width="44" height="46" viewBox="0 0 200 212" fill="none" aria-label="VIT Mauritius Logo">
+          <defs>
+            <path id="vitTopArcHero" d="M 24 106 A 76 76 0 1 1 176 106" />
+            <path id="vitBotArcHero" d="M 48 184 Q 100 168 152 184" />
+            <clipPath id="vitInnerClipHero">
+              <circle cx="100" cy="96" r="64" />
+            </clipPath>
+          </defs>
+          <circle cx="100" cy="96" r="88" stroke="currentColor" stroke-width="3.2" fill="none" />
+          <circle cx="100" cy="96" r="66" stroke="currentColor" stroke-width="2.6" fill="none" />
+          <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="11.5" letter-spacing="0.4">
+            <textPath href="#vitTopArcHero" startOffset="50%" text-anchor="middle">VIT (MAURITIUS) EDUCATION LTD</textPath>
+          </text>
+          <g clip-path="url(#vitInnerClipHero)">
+            <text x="100" y="64" text-anchor="middle" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="29" letter-spacing="1.5">VIT</text>
+            <polygon points="68,104 75,72 88,72 95,104" fill="currentColor" />
+            <rect x="76" y="68" width="11" height="4" fill="currentColor" />
+            <rect x="34" y="102" width="128" height="4" fill="currentColor" />
+            <g fill="currentColor">
+              <rect x="38" y="109" width="12" height="5" /><rect x="53" y="109" width="12" height="5" /><rect x="68" y="109" width="12" height="5" /><rect x="83" y="109" width="12" height="5" /><rect x="98" y="109" width="12" height="5" /><rect x="113" y="109" width="12" height="5" /><rect x="128" y="109" width="12" height="5" />
+              <rect x="42" y="117" width="12" height="5" /><rect x="57" y="117" width="12" height="5" /><rect x="72" y="117" width="12" height="5" /><rect x="87" y="117" width="12" height="5" /><rect x="102" y="117" width="12" height="5" /><rect x="117" y="117" width="12" height="5" /><rect x="132" y="117" width="12" height="5" />
+              <rect x="46" y="125" width="12" height="5" /><rect x="61" y="125" width="12" height="5" /><rect x="76" y="125" width="12" height="5" /><rect x="91" y="125" width="12" height="5" /><rect x="106" y="125" width="12" height="5" /><rect x="121" y="125" width="12" height="5" />
+              <rect x="54" y="133" width="14" height="5" /><rect x="71" y="133" width="14" height="5" /><rect x="88" y="133" width="14" height="5" /><rect x="105" y="133" width="14" height="5" />
+            </g>
+            <path d="M 55 144 Q 100 140 145 144 M 65 151 Q 100 148 135 151" stroke="currentColor" stroke-width="2" fill="none" />
+          </g>
+          <polygon points="40,140 42,145 47,145 43,148 45,153 40,150 35,153 37,148 33,145 38,145" fill="currentColor" />
+          <polygon points="160,140 162,145 167,145 163,148 165,153 160,150 155,153 157,148 153,145 158,145" fill="currentColor" />
+          <path d="M 16 176 L 34 182 L 34 202 L 16 196 L 23 186 Z" stroke="currentColor" stroke-width="2.2" fill="var(--bg)" />
+          <path d="M 184 176 L 166 182 L 166 202 L 184 196 L 177 186 Z" stroke="currentColor" stroke-width="2.2" fill="var(--bg)" />
+          <path d="M 32 178 Q 100 154 168 178 L 168 202 Q 100 178 32 202 Z" stroke="currentColor" stroke-width="2.6" fill="var(--bg)" />
+          <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13.5" letter-spacing="1.6">
+            <textPath href="#vitBotArcHero" startOffset="50%" text-anchor="middle">MAURITIUS</textPath>
+          </text>
+        </svg>
+        <div class="hero-eyebrow">
+          VIT Mauritius • Sat, 20 March 2027 • 6:00 PM – 6:30 AM • Quantum Lawn
+        </div>
+      </div>
+
+      <h1 class="hero-heading">
+        One night. Zero <em class="serif-italic">spectators.</em>
+      </h1>
+
+      <p class="hero-tagline">ONE NIGHT: The Campus That Never Sleeps</p>
+
+      <!-- Live Countdown Timer -->
+      <div class="countdown-row" role="timer" aria-label="Countdown to festival">
+        <div class="liquid-glass countdown-pill">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="liquid-glass countdown-pill">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="liquid-glass countdown-pill">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="liquid-glass countdown-pill">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <!-- Liquid-glass quick pass / email pill -->
+      <form class="liquid-glass hero-input-pill" id="heroQuickForm">
+        <input type="text" id="heroQuickInput" placeholder="Enter your name or student email to claim your Glow-Band" aria-label="Enter your name or student email" />
+        <button type="submit" class="hero-submit-circle" aria-label="Proceed to register">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+
+      <p class="hero-subtitle">
+        Free for all VIT Mauritius students with Student ID; limited guest passes available. Every student performs, competes, creates, or explores until sunrise.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#register" class="liquid-glass liquid-glass-btn manifesto-btn">Register Now</a>
+        <a href="#about" class="liquid-glass liquid-glass-btn manifesto-btn">The Manifesto</a>
+      </div>
+    </div>
+
+    <!-- Social icons footer -->
+    <div class="hero-socials">
+      <a href="#register" class="liquid-glass social-circle" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="#timeline" class="liquid-glass social-circle" aria-label="Twitter">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+        </svg>
+      </a>
+      <a href="#zones" class="liquid-glass social-circle" aria-label="Campus Map">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 2: ABOUT & COUNTERS ================= -->
+  <section class="about-section" id="about">
+    <div class="about-radial" aria-hidden="true"></div>
+    <div class="container">
+      <div class="eyebrow reveal">About The Festival</div>
+      <h2 class="about-heading reveal">
+        One campus <em class="serif-italic">transformed</em> for<br />
+        minds that <em class="serif-italic">perform, build, and explore.</em>
+      </h2>
+
+      <div class="about-body-row">
+        <div class="liquid-glass about-text-card reveal">
+          <p>
+            Most festivals divide the night into performers on a stage and spectators in the dark. <strong>ONE NIGHT</strong> dissolves that boundary completely across VIT Mauritius.
+          </p>
+          <p>
+            From the moment lanterns ignite on Quantum Lawn at 6:00 PM until the acoustic sunrise finale at 6:30 AM, every student carries a Glow-Band and enters the pact: <strong>no audience, only participants.</strong>
+          </p>
+        </div>
+
+        <div class="counters-grid reveal" id="countersGrid">
+          <div class="liquid-glass counter-card">
+            <div class="counter-num" data-target="6" data-suffix="">0</div>
+            <div class="counter-label">Faculty Zones</div>
+            <div class="counter-sub">Across main campus</div>
+          </div>
+          <div class="liquid-glass counter-card">
+            <div class="counter-num" data-target="12" data-suffix="+">0</div>
+            <div class="counter-label">Hours Live</div>
+            <div class="counter-sub">6:00 PM to 6:30 AM</div>
+          </div>
+          <div class="liquid-glass counter-card">
+            <div class="counter-num" data-target="5000" data-suffix="+">0</div>
+            <div class="counter-label">Participants</div>
+            <div class="counter-sub">Zero spectators</div>
+          </div>
+          <div class="liquid-glass counter-card">
+            <div class="counter-num" data-target="1" data-suffix="">0</div>
+            <div class="counter-label">Secret Headliner</div>
+            <div class="counter-sub">Unmasked at midnight</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: FEATURED VIDEO ================= -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="featured-frame reveal">
+        <video
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260402_054547_9875cfc5-155a-4229-8ec8-b7ba7125cbf8.mp4"
+          muted
+          autoplay
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+        <div class="featured-gradient" aria-hidden="true"></div>
+        <div class="featured-overlay">
+          <div class="liquid-glass featured-card">
+            <div class="featured-card-label">Quantum Lawn &amp; Faculty Wings</div>
+            <p>
+              We believe in the power of curiosity-driven participation. Collect a stamp in every zone to complete your Glow-Band before sunrise.
+            </p>
+          </div>
+          <a href="#timeline" class="liquid-glass liquid-glass-btn manifesto-btn">Explore the Night</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 4: NIGHT TIMELINE ================= -->
+  <section class="timeline-section" id="timeline">
+    <div class="container">
+      <h2 class="philosophy-heading reveal">
+        Dusk <em class="serif-italic">×</em> Dawn
+      </h2>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-video reveal-left">
+          <video
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4"
+            muted
+            autoplay
+            loop
+            playsinline
+            preload="auto"
+          ></video>
+        </div>
+
+        <div class="timeline-list reveal-right" id="timelineList">
+          <div class="timeline-item active" tabindex="0" role="button" aria-expanded="true">
+            <div class="timeline-head">
+              <div>
+                <span class="timeline-time">6:00 PM • Quantum Lawn</span>
+                <h3 class="timeline-title">The Lantern Ceremony</h3>
+                <p class="timeline-summary">Everyone decorates and lights a lantern together.</p>
+              </div>
+              <div class="liquid-glass timeline-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-details">
+              <p>Sign your Zero-Spectator Pact onto biodegradable paper lanterns. At 6:30 PM campus floodlights dim and 5,000 lanterns lift the evening together.</p>
+              <div class="timeline-meta">Unlocks: Initial Glow-Band Spark</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" tabindex="0" role="button" aria-expanded="false">
+            <div class="timeline-head">
+              <div>
+                <span class="timeline-time">7:30 PM • All 6 Faculty Zones</span>
+                <h3 class="timeline-title">The Zones Open</h3>
+                <p class="timeline-summary">Collect stamps in each zone to fill your glow-band.</p>
+              </div>
+              <div class="liquid-glass timeline-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-details">
+              <p>All six themed zones unlock simultaneously. Participate in one challenge or collaboration per zone to earn all six stamps on your digital wristband.</p>
+              <div class="timeline-meta">6 Stamps = Full-Spectrum Pass</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" tabindex="0" role="button" aria-expanded="false">
+            <div class="timeline-head">
+              <div>
+                <span class="timeline-time">12:00 AM • 360° Central Platform</span>
+                <h3 class="timeline-title">The Reveal</h3>
+                <p class="timeline-summary">Campus lights return, secret headliner takes the stage.</p>
+              </div>
+              <div class="liquid-glass timeline-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-details">
+              <p>Following a synchronized countdown, campus architectural lights flash back on and our unannounced headliner performs in the round with student instrumentalists.</p>
+              <div class="timeline-meta">Synchronized Wristband Illumination</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" tabindex="0" role="button" aria-expanded="false">
+            <div class="timeline-head">
+              <div>
+                <span class="timeline-time">1:00 AM • Fine Arts Amphitheatre</span>
+                <h3 class="timeline-title">The Open Stage</h3>
+                <p class="timeline-summary">Any student gets 3 minutes on the mic.</p>
+              </div>
+              <div class="liquid-glass timeline-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-details">
+              <p>No auditions, no gatekeeping. Tap your Glow-Band at the stage booth for 180 seconds of live music, poetry, stand-up, or improvised synth sets.</p>
+              <div class="timeline-meta">Live House Backing Band Available</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" tabindex="0" role="button" aria-expanded="false">
+            <div class="timeline-head">
+              <div>
+                <span class="timeline-time">5:30 AM – 6:30 AM • Quantum Lawn East</span>
+                <h3 class="timeline-title">Sunrise Chill</h3>
+                <p class="timeline-summary">Acoustic music and hot drinks on the lawn until dawn.</p>
+              </div>
+              <div class="liquid-glass timeline-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="timeline-details">
+              <p>Unwind with spiced chai, espresso, blankets, and acoustic guitars as first light hits VIT Mauritius Campus—closing with the 6:30 AM sunrise gathering.</p>
+              <div class="timeline-meta">Sunrise Breakfast for Full Glow-Bands</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: SHOWCASE + THE 6 ZONES ================= -->
+  <section class="zones-section" id="zones">
+    <div class="container">
+      <div class="section-header-row reveal">
+        <h2 class="section-big-title">The 6 <em class="serif-italic">Zones</em></h2>
+        <span class="section-side-label">Hover or tap any zone to flip</span>
+      </div>
+
+      <!-- Two-card featured video row -->
+      <div class="pillars-grid">
+        <div class="liquid-glass service-card reveal">
+          <div class="service-video">
+            <video
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
+              muted
+              autoplay
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          </div>
+          <div class="service-body">
+            <div class="service-top">
+              <span class="service-tag">Strategy &amp; Motion</span>
+              <span class="liquid-glass arrow-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </div>
+            <h3 class="service-title">Compete &amp; Engineer</h3>
+            <p class="service-desc">Stealth arenas, autonomous drone circuits, robot battles, and midnight stadium relays built for high-voltage participation.</p>
+          </div>
+        </div>
+
+        <div class="liquid-glass service-card reveal">
+          <div class="service-video">
+            <video
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260324_151826_c7218672-6e92-402c-9e45-f1e0f454bdc4.mp4"
+              muted
+              autoplay
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          </div>
+          <div class="service-body">
+            <div class="service-top">
+              <span class="service-tag">Craft &amp; Culture</span>
+              <span class="liquid-glass arrow-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </span>
+            </div>
+            <h3 class="service-title">Create &amp; Celebrate</h3>
+            <p class="service-desc">Overnight film sprints, UV mural walls, global street-food stalls, and three-channel headphone dance floors beneath the dome.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 6 Zones Grid -->
+      <div class="zones-grid reveal">
+        <div class="zone-wrap" id="zone-blackout" tabindex="0" role="button" aria-label="Blackout Arena">
+          <div class="zone-inner">
+            <div class="liquid-glass zone-face">
+              <div>
+                <div class="liquid-glass zone-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+                <h3 class="zone-name">Blackout Arena</h3>
+                <p class="zone-short">Live-action glow game inside a darkened lecture labyrinth.</p>
+              </div>
+              <span class="liquid-glass zone-for">For Competitors</span>
+            </div>
+            <div class="liquid-glass zone-face zone-back">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 8px;">For Competitors</div>
+                <h3 class="zone-name">Blackout Arena</h3>
+                <p>Team up for capture-the-beacon, tactical stealth, and luminous dodgeball across three pitch-black faculty wings.</p>
+              </div>
+              <div class="zone-back-foot">
+                <span>Engineering Atrium</span>
+                <span>Flip ↺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-wrap" id="zone-maker" tabindex="0" role="button" aria-label="Maker Lab">
+          <div class="zone-inner">
+            <div class="liquid-glass zone-face">
+              <div>
+                <div class="liquid-glass zone-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                  </svg>
+                </div>
+                <h3 class="zone-name">Maker Lab</h3>
+                <p class="zone-short">Drone races, robot battles, and interactive light installations.</p>
+              </div>
+              <span class="liquid-glass zone-for">For Techies</span>
+            </div>
+            <div class="liquid-glass zone-face zone-back">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 8px;">For Techies</div>
+                <h3 class="zone-name">Maker Lab</h3>
+                <p>Pilot FPV micro-drones through illuminated gates, build 30-minute scrap-bots, or program architectural LED matrices.</p>
+              </div>
+              <div class="zone-back-foot">
+                <span>Robotics Hangar</span>
+                <span>Flip ↺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-wrap" id="zone-canvas" tabindex="0" role="button" aria-label="The Canvas">
+          <div class="zone-inner">
+            <div class="liquid-glass zone-face">
+              <div>
+                <div class="liquid-glass zone-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                  </svg>
+                </div>
+                <h3 class="zone-name">The Canvas</h3>
+                <p class="zone-short">Graffiti wall, glow painting, and 24-hour film challenge.</p>
+              </div>
+              <span class="liquid-glass zone-for">For Creatives</span>
+            </div>
+            <div class="liquid-glass zone-face zone-back">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 8px;">For Creatives</div>
+                <h3 class="zone-name">The Canvas</h3>
+                <p>Co-paint a 40-metre UV mural, experiment with fluorescent body paint, or shoot and cut an overnight short film by 5 AM.</p>
+              </div>
+              <div class="zone-back-foot">
+                <span>Fine Arts Courtyard</span>
+                <span>Flip ↺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-wrap" id="zone-market" tabindex="0" role="button" aria-label="Night Market">
+          <div class="zone-inner">
+            <div class="liquid-glass zone-face">
+              <div>
+                <div class="liquid-glass zone-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  </svg>
+                </div>
+                <h3 class="zone-name">Night Market</h3>
+                <p class="zone-short">Food stalls from many cultures and student-run clubs.</p>
+              </div>
+              <span class="liquid-glass zone-for">For Foodies</span>
+            </div>
+            <div class="liquid-glass zone-face zone-back">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 8px;">For Foodies</div>
+                <h3 class="zone-name">Night Market</h3>
+                <p>Lantern-lit avenues serving midnight ramen, street tacos, dumplings, crêpes, and spiced drinks crafted by cultural societies.</p>
+              </div>
+              <div class="zone-back-foot">
+                <span>Clocktower Arcade</span>
+                <span>Flip ↺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-wrap" id="zone-disco" tabindex="0" role="button" aria-label="Silent Disco Dome">
+          <div class="zone-inner">
+            <div class="liquid-glass zone-face">
+              <div>
+                <div class="liquid-glass zone-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path>
+                    <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                  </svg>
+                </div>
+                <h3 class="zone-name">Silent Disco Dome</h3>
+                <p class="zone-short">Headphone dance floor beneath the Observatory geodesic dome.</p>
+              </div>
+              <span class="liquid-glass zone-for">For Everyone, No Skill Needed</span>
+            </div>
+            <div class="liquid-glass zone-face zone-back">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 8px;">For Everyone</div>
+                <h3 class="zone-name">Silent Disco Dome</h3>
+                <p>Switch effortlessly across three live DJ channels—Techno, Throwback Pop, or Indie/Afrobeats—surrounded by quiet night air.</p>
+              </div>
+              <div class="zone-back-foot">
+                <span>Observatory Dome</span>
+                <span>Flip ↺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="zone-wrap" id="zone-games" tabindex="0" role="button" aria-label="Midnight Games">
+          <div class="zone-inner">
+            <div class="liquid-glass zone-face">
+              <div>
+                <div class="liquid-glass zone-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <h3 class="zone-name">Midnight Games</h3>
+                <p class="zone-short">Fun run, human foosball, and floodlit tug of war.</p>
+              </div>
+              <span class="liquid-glass zone-for">For Athletes</span>
+            </div>
+            <div class="liquid-glass zone-face zone-back">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 8px;">For Athletes</div>
+                <h3 class="zone-name">Midnight Games</h3>
+                <p>Run the 3K Campus Dash, rally inside life-size inflatable human foosball courts, or anchor your faculty in tug-of-war heats.</p>
+              </div>
+              <div class="zone-back-foot">
+                <span>VIT Mauritius Stadium Field</span>
+                <span>Flip ↺</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: FIND YOUR ZONE QUIZ ================= -->
+  <section class="quiz-section" id="quiz">
+    <div class="container">
+      <div class="section-header-row reveal">
+        <h2 class="section-big-title">Find Your <em class="serif-italic">Zone</em></h2>
+        <span class="section-side-label">4 quick questions</span>
+      </div>
+
+      <div class="liquid-glass quiz-box reveal">
+        <div id="quizBody">
+          <div class="quiz-bar">
+            <div class="quiz-bar-fill" id="quizProgress"></div>
+          </div>
+          <div class="eyebrow" id="quizStepLabel" style="margin-bottom: 10px;">Question 1 of 4</div>
+          <h3 class="quiz-q" id="quizQuestion">Pick your vibe:</h3>
+          <div class="quiz-opts" id="quizOptions"></div>
+        </div>
+
+        <div class="quiz-result" id="quizResult">
+          <div class="eyebrow">Your Starting Zone</div>
+          <h3 class="quiz-result-name" id="resultZoneName">Silent Disco Dome</h3>
+          <p class="quiz-result-desc" id="resultZoneDesc"></p>
+          <div class="quiz-actions">
+            <button type="button" class="solid-btn" id="jumpToZoneBtn">Highlight Zone Card</button>
+            <button type="button" class="liquid-glass liquid-glass-btn manifesto-btn" id="retakeQuizBtn">Retake Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 7: SPEAKERS & PERFORMERS ================= -->
+  <section class="speakers-section" id="speakers">
+    <div class="container">
+      <div class="section-header-row reveal">
+        <h2 class="section-big-title">Speakers &amp; <em class="serif-italic">Performers</em></h2>
+        <span class="section-side-label">Campus catalysts</span>
+      </div>
+
+      <div class="speakers-grid reveal">
+        <article class="liquid-glass speaker-card">
+          <div class="speaker-head">
+            <div class="liquid-glass avatar">AV</div>
+            <div>
+              <h3 class="speaker-name">Dr. Amara Voss</h3>
+              <div class="speaker-role">Dean of Experimental Arts &amp; Lantern Host</div>
+            </div>
+          </div>
+          <p class="speaker-line">Lights the first ceremonial lantern on Quantum Lawn and leads the midnight Zero-Spectator Pact.</p>
+        </article>
+
+        <article class="liquid-glass speaker-card">
+          <div class="speaker-head">
+            <div class="liquid-glass avatar">KM</div>
+            <div>
+              <h3 class="speaker-name">Kaelen Mercer</h3>
+              <div class="speaker-role">Silent Disco Architect • Sound Lab</div>
+            </div>
+          </div>
+          <p class="speaker-line">Curates the tri-channel geodesic dome—blending deep house, throwback pop, and live campus vocals.</p>
+        </article>
+
+        <article class="liquid-glass speaker-card">
+          <div class="speaker-head">
+            <div class="liquid-glass avatar">TA</div>
+            <div>
+              <h3 class="speaker-name">Prof. Tariq Al-Mansoor</h3>
+              <div class="speaker-role">Chair of Robotics • Maker Lab</div>
+            </div>
+          </div>
+          <p class="speaker-line">Referees the 2:00 AM drone obstacle league and directs the clocktower light installation.</p>
+        </article>
+
+        <article class="liquid-glass speaker-card">
+          <div class="speaker-head">
+            <div class="liquid-glass avatar">ML</div>
+            <div>
+              <h3 class="speaker-name">Maya Lin-Sato</h3>
+              <div class="speaker-role">Muralist &amp; Overnight Film Lead</div>
+            </div>
+          </div>
+          <p class="speaker-line">Turns four storeys of concrete into glowing art and premieres student 24-hour shorts before dawn.</p>
+        </article>
+
+        <article class="liquid-glass speaker-card">
+          <div class="speaker-head">
+            <div class="liquid-glass avatar">SO</div>
+            <div>
+              <h3 class="speaker-name">Samira Okafor</h3>
+              <div class="speaker-role">Student Guild Captain • Midnight Games</div>
+            </div>
+          </div>
+          <p class="speaker-line">Captains the 3K Fun Run and turns faculty rivalries into floodlit human-foosball glory.</p>
+        </article>
+
+        <article class="liquid-glass speaker-card">
+          <div class="speaker-head">
+            <div class="liquid-glass avatar">?</div>
+            <div>
+              <h3 class="speaker-name">The Secret Headliner</h3>
+              <div class="speaker-role">Unmasked at 12:00 AM Sharp</div>
+            </div>
+          </div>
+          <p class="speaker-line">One surprise artist performing in the round—revealed only when campus lights return at midnight.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 8: REGISTER & DIGITAL PASS ================= -->
+  <section class="register-section" id="register">
+    <div class="container">
+      <div class="section-header-row reveal">
+        <h2 class="section-big-title">Claim Your <em class="serif-italic">Glow-Band</em></h2>
+        <span class="section-side-label">Free w/ Student ID • Guest passes limited</span>
+      </div>
+
+      <div class="register-grid reveal">
+        <form class="liquid-glass register-card" id="registerForm" novalidate>
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <input type="text" id="regName" class="form-control" placeholder="e.g. Jordan Rivera" required />
+          </div>
+
+          <div class="form-group">
+            <label for="regType">Entry Type</label>
+            <select id="regType" class="form-control">
+              <option value="VIT Mauritius Student (Free w/ ID)">VIT Mauritius Student — Free with Student ID</option>
+              <option value="Limited Guest Pass">External Guest — Limited Guest Pass</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="regZone">Starting Zone</label>
+            <select id="regZone" class="form-control">
+              <option value="Blackout Arena">Blackout Arena (Competitors)</option>
+              <option value="Maker Lab">Maker Lab (Techies)</option>
+              <option value="The Canvas">The Canvas (Creatives)</option>
+              <option value="Night Market">Night Market (Foodies)</option>
+              <option value="Silent Disco Dome">Silent Disco Dome (Everyone)</option>
+              <option value="Midnight Games">Midnight Games (Athletes)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="regRole">Your Zero-Spectator Pact</label>
+            <input type="text" id="regRole" class="form-control" placeholder="e.g. Performing 3 minutes at 1 AM Open Stage" />
+          </div>
+
+          <button type="submit" class="solid-btn" style="width: 100%; padding: 14px 28px;">
+            Activate Glow-Band Pass
+          </button>
+          <div class="form-status" id="formFeedback" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="liquid-glass pass-card">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 6px;">Live Wristband Preview</div>
+            <p style="font-size: 0.9rem; color: var(--muted);">
+              Present your activated pass and Student ID at Quantum Lawn gate from 5:30 PM.
+            </p>
+
+            <div class="liquid-glass wristband">
+              <div class="wristband-top">
+                <span class="wristband-brand">
+                  <svg class="vit-crest" width="28" height="30" viewBox="0 0 200 212" fill="none" aria-hidden="true">
+                    <defs>
+                      <path id="vitTopArcPass" d="M 24 106 A 76 76 0 1 1 176 106" />
+                      <path id="vitBotArcPass" d="M 48 184 Q 100 168 152 184" />
+                      <clipPath id="vitInnerClipPass">
+                        <circle cx="100" cy="96" r="64" />
+                      </clipPath>
+                    </defs>
+                    <circle cx="100" cy="96" r="88" stroke="currentColor" stroke-width="3.2" fill="none" />
+                    <circle cx="100" cy="96" r="66" stroke="currentColor" stroke-width="2.6" fill="none" />
+                    <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="11.5" letter-spacing="0.4">
+                      <textPath href="#vitTopArcPass" startOffset="50%" text-anchor="middle">VIT (MAURITIUS) EDUCATION LTD</textPath>
+                    </text>
+                    <g clip-path="url(#vitInnerClipPass)">
+                      <text x="100" y="64" text-anchor="middle" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="29" letter-spacing="1.5">VIT</text>
+                      <polygon points="68,104 75,72 88,72 95,104" fill="currentColor" />
+                      <rect x="76" y="68" width="11" height="4" fill="currentColor" />
+                      <rect x="34" y="102" width="128" height="4" fill="currentColor" />
+                      <g fill="currentColor">
+                        <rect x="38" y="109" width="12" height="5" /><rect x="53" y="109" width="12" height="5" /><rect x="68" y="109" width="12" height="5" /><rect x="83" y="109" width="12" height="5" /><rect x="98" y="109" width="12" height="5" /><rect x="113" y="109" width="12" height="5" /><rect x="128" y="109" width="12" height="5" />
+                        <rect x="42" y="117" width="12" height="5" /><rect x="57" y="117" width="12" height="5" /><rect x="72" y="117" width="12" height="5" /><rect x="87" y="117" width="12" height="5" /><rect x="102" y="117" width="12" height="5" /><rect x="117" y="117" width="12" height="5" /><rect x="132" y="117" width="12" height="5" />
+                        <rect x="46" y="125" width="12" height="5" /><rect x="61" y="125" width="12" height="5" /><rect x="76" y="125" width="12" height="5" /><rect x="91" y="125" width="12" height="5" /><rect x="106" y="125" width="12" height="5" /><rect x="121" y="125" width="12" height="5" />
+                        <rect x="54" y="133" width="14" height="5" /><rect x="71" y="133" width="14" height="5" /><rect x="88" y="133" width="14" height="5" /><rect x="105" y="133" width="14" height="5" />
+                      </g>
+                      <path d="M 55 144 Q 100 140 145 144 M 65 151 Q 100 148 135 151" stroke="currentColor" stroke-width="2" fill="none" />
+                    </g>
+                    <path d="M 32 178 Q 100 154 168 178 L 168 202 Q 100 178 32 202 Z" stroke="currentColor" stroke-width="2.6" fill="var(--bg)" />
+                    <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13.5" letter-spacing="1.6">
+                      <textPath href="#vitBotArcPass" startOffset="50%" text-anchor="middle">MAURITIUS</textPath>
+                    </text>
+                  </svg>
+                  <span>ONE NIGHT • 20 MAR 2027</span>
+                </span>
+                <span id="passIdLabel">ID #VIT-2027</span>
+              </div>
+              <div class="wristband-name" id="passNamePreview">Your Name Here</div>
+              <div class="wristband-meta">
+                <span id="passTypePreview">VIT Mauritius Student</span>
+                <span>•</span>
+                <span id="passZonePreview">Starting: Blackout Arena</span>
+              </div>
+              <div class="stamp-dots" title="6 Zone Stamp Slots">
+                <span class="stamp-dot lit"></span>
+                <span class="stamp-dot"></span>
+                <span class="stamp-dot"></span>
+                <span class="stamp-dot"></span>
+                <span class="stamp-dot"></span>
+                <span class="stamp-dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="entry-notes">
+            <div><strong>Date:</strong> Saturday, 20 March 2027, 6:00 PM to Sunday 6:30 AM (Sunrise Finish)</div>
+            <div><strong>Venue:</strong> VIT Mauritius Main Campus, Quantum Lawn &amp; all faculty zones</div>
+            <div><strong>Entry:</strong> Free for all VIT Mauritius students with student ID; guest passes limited</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="brand">
+          <svg class="vit-crest" width="30" height="32" viewBox="0 0 200 212" fill="none" aria-hidden="true">
+            <defs>
+              <path id="vitTopArcFoot" d="M 24 106 A 76 76 0 1 1 176 106" />
+              <path id="vitBotArcFoot" d="M 48 184 Q 100 168 152 184" />
+              <clipPath id="vitInnerClipFoot">
+                <circle cx="100" cy="96" r="64" />
+              </clipPath>
+            </defs>
+            <circle cx="100" cy="96" r="88" stroke="currentColor" stroke-width="3.2" fill="none" />
+            <circle cx="100" cy="96" r="66" stroke="currentColor" stroke-width="2.6" fill="none" />
+            <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="11.5" letter-spacing="0.4">
+              <textPath href="#vitTopArcFoot" startOffset="50%" text-anchor="middle">VIT (MAURITIUS) EDUCATION LTD</textPath>
+            </text>
+            <g clip-path="url(#vitInnerClipFoot)">
+              <text x="100" y="64" text-anchor="middle" fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="29" letter-spacing="1.5">VIT</text>
+              <polygon points="68,104 75,72 88,72 95,104" fill="currentColor" />
+              <rect x="76" y="68" width="11" height="4" fill="currentColor" />
+              <rect x="34" y="102" width="128" height="4" fill="currentColor" />
+              <g fill="currentColor">
+                <rect x="38" y="109" width="12" height="5" /><rect x="53" y="109" width="12" height="5" /><rect x="68" y="109" width="12" height="5" /><rect x="83" y="109" width="12" height="5" /><rect x="98" y="109" width="12" height="5" /><rect x="113" y="109" width="12" height="5" /><rect x="128" y="109" width="12" height="5" />
+                <rect x="42" y="117" width="12" height="5" /><rect x="57" y="117" width="12" height="5" /><rect x="72" y="117" width="12" height="5" /><rect x="87" y="117" width="12" height="5" /><rect x="102" y="117" width="12" height="5" /><rect x="117" y="117" width="12" height="5" /><rect x="132" y="117" width="12" height="5" />
+                <rect x="46" y="125" width="12" height="5" /><rect x="61" y="125" width="12" height="5" /><rect x="76" y="125" width="12" height="5" /><rect x="91" y="125" width="12" height="5" /><rect x="106" y="125" width="12" height="5" /><rect x="121" y="125" width="12" height="5" />
+                <rect x="54" y="133" width="14" height="5" /><rect x="71" y="133" width="14" height="5" /><rect x="88" y="133" width="14" height="5" /><rect x="105" y="133" width="14" height="5" />
+              </g>
+              <path d="M 55 144 Q 100 140 145 144 M 65 151 Q 100 148 135 151" stroke="currentColor" stroke-width="2" fill="none" />
+            </g>
+            <path d="M 32 178 Q 100 154 168 178 L 168 202 Q 100 178 32 202 Z" stroke="currentColor" stroke-width="2.6" fill="var(--bg)" />
+            <text fill="currentColor" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="13.5" letter-spacing="1.6">
+              <textPath href="#vitBotArcFoot" startOffset="50%" text-anchor="middle">MAURITIUS</textPath>
+            </text>
+          </svg>
+          <span>ONE NIGHT: The Campus That Never Sleeps</span>
+        </div>
+        <div class="footer-sub">VIT Mauritius • Fictional Event • Saturday, 20 March 2027</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Top</a>
+        <a href="#about">Concept</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#zones">6 Zones</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#register">Register</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= VANILLA JAVASCRIPT ================= -->
+  <script>
+    (function () {
+      /* ---------- 1. DARK / LIGHT MODE TOGGLE (STRICT 3 COLORS) ---------- */
+      const root = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const iconSun = document.getElementById('themeIconSun');
+      const iconMoon = document.getElementById('themeIconMoon');
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        const isDark = theme === 'dark';
+        iconSun.style.display = isDark ? 'block' : 'none';
+        iconMoon.style.display = isDark ? 'none' : 'block';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') || 'dark';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      /* ---------- 2. MOBILE HAMBURGER MENU ---------- */
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+
+      hamburgerBtn.addEventListener('click', () => {
+        const open = mobileDrawer.classList.toggle('open');
+        hamburgerBtn.setAttribute('aria-expanded', String(open));
+      });
+
+      mobileDrawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileDrawer.classList.remove('open');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      /* ---------- 3. HERO VIDEO SEAMLESS FADE LOOP (VANILLA JS rAF) ---------- */
+      const heroVideo = document.getElementById('heroVideo');
+      let fadeRaf = null;
+      let isFadingOut = false;
+
+      function animateOpacity(el, from, to, duration, onDone) {
+        if (fadeRaf) cancelAnimationFrame(fadeRaf);
+        const start = performance.now();
+
+        function step(now) {
+          const progress = Math.min(1, (now - start) / duration);
+          el.style.opacity = String(from + (to - from) * progress);
+          if (progress < 1) {
+            fadeRaf = requestAnimationFrame(step);
+          } else if (onDone) {
+            onDone();
+          }
+        }
+        fadeRaf = requestAnimationFrame(step);
+      }
+
+      if (heroVideo) {
+        heroVideo.addEventListener('canplay', () => {
+          heroVideo.play().catch(() => {});
+          if (!isFadingOut && parseFloat(getComputedStyle(heroVideo).opacity) === 0) {
+            animateOpacity(heroVideo, 0, 1, 500);
+          }
+        });
+
+        heroVideo.addEventListener('timeupdate', () => {
+          if (!heroVideo.duration) return;
+          const remaining = heroVideo.duration - heroVideo.currentTime;
+          if (remaining <= 0.55 && !isFadingOut) {
+            isFadingOut = true;
+            const currentOpacity = parseFloat(heroVideo.style.opacity || getComputedStyle(heroVideo).opacity) || 1;
+            animateOpacity(heroVideo, currentOpacity, 0, 500);
+          }
+        });
+
+        heroVideo.addEventListener('ended', () => {
+          heroVideo.style.opacity = '0';
+          setTimeout(() => {
+            heroVideo.currentTime = 0;
+            isFadingOut = false;
+            heroVideo.play().catch(() => {});
+            animateOpacity(heroVideo, 0, 1, 500);
+          }, 100);
+        });
+      }
+
+      /* ---------- 4. LIVE COUNTDOWN TIMER TO 20 MARCH 2027 6:00 PM ---------- */
+      const eventDate = new Date('2027-03-20T18:00:00').getTime();
+      const elDays = document.getElementById('cd-days');
+      const elHours = document.getElementById('cd-hours');
+      const elMins = document.getElementById('cd-mins');
+      const elSecs = document.getElementById('cd-secs');
+
+      function updateCountdown() {
+        const diff = Math.max(0, eventDate - Date.now());
+        elDays.textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+        elHours.textContent = String(Math.floor((diff / 3600000) % 24)).padStart(2, '0');
+        elMins.textContent = String(Math.floor((diff / 60000) % 60)).padStart(2, '0');
+        elSecs.textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      /* ---------- 5. SCROLL REVEAL & ANIMATED COUNTERS ---------- */
+      const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+
+      let countersStarted = false;
+      const countersGrid = document.getElementById('countersGrid');
+      const counterEls = countersGrid.querySelectorAll('.counter-num');
+
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !countersStarted) {
+            countersStarted = true;
+            counterEls.forEach(el => {
+              const target = parseInt(el.dataset.target, 10);
+              const suffix = el.dataset.suffix || '';
+              const start = performance.now();
+
+              function step(now) {
+                const t = Math.min(1, (now - start) / 1300);
+                const eased = 1 - Math.pow(1 - t, 3);
+                el.textContent = Math.round(target * eased).toLocaleString() + suffix;
+                if (t < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      counterObserver.observe(countersGrid);
+
+      /* ---------- 6. INTERACTIVE NIGHT TIMELINE ---------- */
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      function toggleTimeline(item) {
+        const wasActive = item.classList.contains('active');
+        timelineItems.forEach(other => {
+          other.classList.remove('active');
+          other.setAttribute('aria-expanded', 'false');
+        });
+        if (!wasActive) {
+          item.classList.add('active');
+          item.setAttribute('aria-expanded', 'true');
+        }
+      }
+
+      timelineItems.forEach(item => {
+        item.addEventListener('click', () => toggleTimeline(item));
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleTimeline(item);
+          }
+        });
+      });
+
+      /* ---------- 7. INTERACTIVE 6 ZONES FLIP CARDS ---------- */
+      document.querySelectorAll('.zone-wrap').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('flipped'));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.classList.toggle('flipped');
+          }
+        });
+      });
+
+      /* ---------- 8. FIND YOUR ZONE QUIZ ---------- */
+      const zoneMeta = {
+        blackout: {
+          name: 'Blackout Arena',
+          elId: 'zone-blackout',
+          desc: 'Head to the Engineering Atrium for pitch-black stealth games, capture-the-beacon, and competitive squad rounds.'
+        },
+        maker: {
+          name: 'Maker Lab',
+          elId: 'zone-maker',
+          desc: 'Start at the Robotics Hangar for FPV drone races, rapid bot battles, and interactive light installations.'
+        },
+        canvas: {
+          name: 'The Canvas',
+          elId: 'zone-canvas',
+          desc: 'Step into the Fine Arts Courtyard to spray the 40-metre UV mural or join an overnight 24-hour film team.'
+        },
+        market: {
+          name: 'Night Market',
+          elId: 'zone-market',
+          desc: 'Begin at Clocktower Arcade to explore global street food and student-club kitchens running till sunrise.'
+        },
+        disco: {
+          name: 'Silent Disco Dome',
+          elId: 'zone-disco',
+          desc: 'Slip on three-channel headphones under the Observatory Dome for effortless late-night dancing—no skill required.'
+        },
+        games: {
+          name: 'Midnight Games',
+          elId: 'zone-games',
+          desc: 'Sprint straight to VIT Mauritius Stadium Field for the 3K fun run, human foosball, and floodlit tug of war.'
+        }
+      };
+
+      const questions = [
+        {
+          prompt: 'Pick your ideal midnight vibe:',
+          options: [
+            { title: 'Stealth, speed & strategy', sub: 'Outsmart rivals in the dark', zone: 'blackout' },
+            { title: 'Building & coding under pressure', sub: 'Drones, bots & light rigs', zone: 'maker' },
+            { title: 'Creating bold art with strangers', sub: 'Paint, film & open expression', zone: 'canvas' },
+            { title: 'Losing yourself in rhythm', sub: 'Three DJ channels under the dome', zone: 'disco' }
+          ]
+        },
+        {
+          prompt: 'Choose your 11:00 PM fuel:',
+          options: [
+            { title: 'Midnight ramen & street dumplings', sub: 'Taste every student stall', zone: 'market' },
+            { title: 'Water & a pre-sprint stretch', sub: 'Ready for stadium heats', zone: 'games' },
+            { title: 'Black coffee & a soldering iron', sub: 'Finish the prototype', zone: 'maker' },
+            { title: 'Iced tea on the dance floor', sub: 'Switch channels nonstop', zone: 'disco' }
+          ]
+        },
+        {
+          prompt: 'Pick one essential for tonight:',
+          options: [
+            { title: 'A camera or sketchpad', sub: 'Document the sleepless campus', zone: 'canvas' },
+            { title: 'Running shoes & team spirit', sub: 'Anchor the tug-of-war rope', zone: 'games' },
+            { title: 'Sharp instincts in the dark', sub: 'Capture the glowing beacon', zone: 'blackout' },
+            { title: 'An empty stomach', sub: 'Twenty cultural stalls await', zone: 'market' }
+          ]
+        },
+        {
+          prompt: 'At 3:00 AM, where do we find you?',
+          options: [
+            { title: 'Cutting a 2-minute film', sub: 'Premiering at 5 AM', zone: 'canvas' },
+            { title: 'Cheering on mini-bot duels', sub: 'Sparks in the Robotics Hangar', zone: 'maker' },
+            { title: 'Scoring in human foosball', sub: 'Floodlights on the field', zone: 'games' },
+            { title: 'Singing on Channel Two', sub: 'No spectators, everyone dancing', zone: 'disco' }
+          ]
+        }
+      ];
+
+      let currentQ = 0;
+      let scores = { blackout: 0, maker: 0, canvas: 0, market: 0, disco: 0, games: 0 };
+      let matchedKey = 'disco';
+
+      const quizBody = document.getElementById('quizBody');
+      const quizResult = document.getElementById('quizResult');
+      const quizProgress = document.getElementById('quizProgress');
+      const quizStepLabel = document.getElementById('quizStepLabel');
+      const quizQuestion = document.getElementById('quizQuestion');
+      const quizOptions = document.getElementById('quizOptions');
+      const resultZoneName = document.getElementById('resultZoneName');
+      const resultZoneDesc = document.getElementById('resultZoneDesc');
+      const jumpToZoneBtn = document.getElementById('jumpToZoneBtn');
+      const retakeQuizBtn = document.getElementById('retakeQuizBtn');
+
+      function renderQuestion() {
+        const q = questions[currentQ];
+        quizProgress.style.width = `${((currentQ + 1) / questions.length) * 100}%`;
+        quizStepLabel.textContent = `Question ${currentQ + 1} of ${questions.length}`;
+        quizQuestion.textContent = q.prompt;
+        quizOptions.innerHTML = '';
+
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'liquid-glass quiz-opt';
+          btn.innerHTML = `<strong>${opt.title}</strong><span>${opt.sub}</span>`;
+          btn.addEventListener('click', () => {
+            scores[opt.zone] += 1;
+            currentQ += 1;
+            if (currentQ < questions.length) {
+              renderQuestion();
+            } else {
+              matchedKey = Object.keys(scores).reduce((best, k) => scores[k] > scores[best] ? k : best, 'disco');
+              const info = zoneMeta[matchedKey];
+              resultZoneName.textContent = info.name;
+              resultZoneDesc.textContent = info.desc;
+              quizBody.style.display = 'none';
+              quizResult.classList.add('show');
+              document.getElementById('regZone').value = info.name;
+              updatePassPreview();
+            }
+          });
+          quizOptions.appendChild(btn);
+        });
+      }
+
+      retakeQuizBtn.addEventListener('click', () => {
+        currentQ = 0;
+        scores = { blackout: 0, maker: 0, canvas: 0, market: 0, disco: 0, games: 0 };
+        quizResult.classList.remove('show');
+        quizBody.style.display = 'block';
+        renderQuestion();
+      });
+
+      jumpToZoneBtn.addEventListener('click', () => {
+        const card = document.getElementById(zoneMeta[matchedKey].elId);
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          card.classList.add('flipped', 'zone-highlight');
+          setTimeout(() => card.classList.remove('zone-highlight'), 1800);
+        }
+      });
+
+      renderQuestion();
+
+      /* ---------- 9. HERO QUICK FORM & PASS GENERATOR ---------- */
+      const heroQuickForm = document.getElementById('heroQuickForm');
+      const heroQuickInput = document.getElementById('heroQuickInput');
+      const regForm = document.getElementById('registerForm');
+      const regName = document.getElementById('regName');
+      const regType = document.getElementById('regType');
+      const regZone = document.getElementById('regZone');
+      const formFeedback = document.getElementById('formFeedback');
+
+      const passNamePreview = document.getElementById('passNamePreview');
+      const passTypePreview = document.getElementById('passTypePreview');
+      const passZonePreview = document.getElementById('passZonePreview');
+      const passIdLabel = document.getElementById('passIdLabel');
+      const stampDots = document.querySelectorAll('.stamp-dot');
+
+      function updatePassPreview() {
+        const clean = regName.value.trim();
+        passNamePreview.textContent = clean || 'Your Name Here';
+        passTypePreview.textContent = regType.value.includes('Student') ? 'VIT Mauritius Student' : 'Guest Pass';
+        passZonePreview.textContent = `Starting: ${regZone.value}`;
+      }
+
+      heroQuickForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = heroQuickInput.value.trim();
+        if (val) {
+          regName.value = val.includes('@') ? val.split('@')[0] : val;
+          updatePassPreview();
+        }
+        document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => regName.focus(), 450);
+      });
+
+      regName.addEventListener('input', updatePassPreview);
+      regType.addEventListener('change', updatePassPreview);
+      regZone.addEventListener('change', updatePassPreview);
+
+      regForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameVal = regName.value.trim();
+        if (!nameVal) {
+          formFeedback.textContent = 'Please enter your name to activate your Glow-Band Pass.';
+          regName.focus();
+          return;
+        }
+
+        const code = Math.floor(1000 + Math.random() * 9000);
+        passIdLabel.textContent = `ID #VIT-${code}`;
+        updatePassPreview();
+
+        stampDots.forEach((dot, idx) => {
+          setTimeout(() => dot.classList.add('lit'), idx * 90);
+        });
+
+        formFeedback.textContent = `Glow-Band activated for ${nameVal}. See you on Quantum Lawn, 20 March 2027.`;
+      });
+    })();
+  </script>
+</body>
+</html>
