@@ -31,15 +31,6 @@ The site presents the event's different stands and zones, and includes a short q
 
 The whole site was designed, assembled and deployed within a **30-minute** time limit. We directed the concept, features and quiz flow, then refined the AI-generated output to fit our idea.
 
-## Running Locally
-
-No build step or dependencies needed.
-
-1. Clone the repository:
-   ```bash
-   git clone <your-repo-url>
-   ```
-2. Open the HTML file in any modern browser.
 
 ## Team
 
