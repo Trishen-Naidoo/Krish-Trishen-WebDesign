@@ -1,6 +1,6 @@
 # One Night on Campus
 
-An inclusive event website built for the **Techwave Web Design Challenge**, designed for a fictional university-wide event where everyone has a place.
+An inclusive event website built for the **Techwave Web Design Challenge**, designed for a event at VIT Mauritius where everyone has a place.
 
 **Live demo:** https://krish-trishen-webdesign.netlify.app/
 
